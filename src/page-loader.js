@@ -18,8 +18,20 @@ export default function pageLoader() {
     const navBarSubTitleText = document.createElement('h4');
     navBarSubTitleText.innerText = "The Restaurant"
 
-    const navBarLinks = document.createElement('div');
+    const navBarLinks = document.createElement('menu');
     navBarLinks.classList.add('navbar-links');
+  
+    const navBarLinkHome = document.createElement('li');
+    navBarLinkHome.innerText = "Home";
+    navBarLinkHome.id = "Home";
+
+    const navBarLinkMenu = document.createElement('li');
+    navBarLinkMenu.innerText = "Menu";
+    navBarLinkMenu.id = "Menu";
+
+    const navBarLinkContact = document.createElement('li');
+    navBarLinkContact.innerText = "Contact";
+    navBarLinkContact.id = "Contact";
 
     const divBackground = document.createElement('div');
     divBackground.classList.add('container-background');
@@ -44,7 +56,7 @@ export default function pageLoader() {
 
     const buttonReserve = document.createElement('button');
     buttonReserve.classList.add('reserve-button');
-    buttonReserve.textContent = "Make a reservation with us"
+    buttonReserve.textContent = "Make a reservation with us";
 
     contentDiv.appendChild(divSocialNetwork);
     contentDiv.appendChild(navBar);
@@ -55,6 +67,11 @@ export default function pageLoader() {
 
     navBarTitle.appendChild(navBarTitleText);
     navBarTitle.appendChild(navBarSubTitleText);
+
+    navBarLinks.appendChild(navBarLinkHome);
+    navBarLinks.appendChild(navBarLinkMenu);
+    navBarLinks.appendChild(navBarLinkContact);
+
     divBackground.appendChild(divBackgroundMain);
 
     divBackgroundMain.appendChild(imageBackground);
