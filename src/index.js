@@ -1,8 +1,9 @@
 import './style.css';
-import BackgroundMain from './background-main.jpg';
+import pageLoader from './page-loader.js';
 
 function holaMundo() {
   console.log("Im working");
 }
 
 holaMundo()
+pageLoader()
