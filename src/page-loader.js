@@ -3,9 +3,6 @@ import backgroundImage from './background-main.jpg'
 export default function pageLoader() {
     const contentDiv = document.getElementById('content')
 
-    const divSocialNetwork = document.createElement('div');
-    divSocialNetwork.classList.add('social-network-bar');
-
     const navBar = document.createElement('div');
     navBar.classList.add('navbar');
 
@@ -35,18 +32,22 @@ export default function pageLoader() {
 
     const divBackground = document.createElement('div');
     divBackground.classList.add('container-background');
+    divBackground.id = "background-main"
 
     const divBackgroundMain = document.createElement('div');
     divBackgroundMain.classList.add('background-main');
+    divBackgroundMain.id = "background-home";
 
     const imageBackground = document.createElement('img');
-    imageBackground.src = backgroundImage
+    imageBackground.src = backgroundImage;
+    imageBackground.id = "background-image";
 
     const divBackgroundShadow = document.createElement('div');
     divBackgroundShadow.classList.add('background-main-shadow');
 
     const divBackgroundText = document.createElement('div');
     divBackgroundText.classList.add('background-text')
+    divBackgroundText.id = "presentation-text";
 
     const titleBackground = document.createElement('h1');
     titleBackground.innerText = "Welcome to Selanne";
@@ -56,9 +57,9 @@ export default function pageLoader() {
 
     const buttonReserve = document.createElement('button');
     buttonReserve.classList.add('reserve-button');
+    buttonReserve.id = "button-reserve";
     buttonReserve.textContent = "Make a reservation with us";
 
-    contentDiv.appendChild(divSocialNetwork);
     contentDiv.appendChild(navBar);
     contentDiv.appendChild(divBackground);
 
@@ -83,6 +84,10 @@ export default function pageLoader() {
     divBackgroundText.appendChild(subTitleBackground);
     divBackgroundShadow.appendChild(buttonReserve);
     console.log(buttonReserve);
+
+    const checkPage = "Home";
+
+    console.log(checkPage);
 }
 
 /* <div id="social-network" class="social-network-bar"></div>
