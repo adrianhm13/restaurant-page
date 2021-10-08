@@ -1,5 +1,7 @@
 import './style.css';
 import pageLoader from './page-loader.js';
+import menuLoader from './menu-loader';
+
 
 function holaMundo() {
   console.log("Im working");
@@ -7,3 +9,7 @@ function holaMundo() {
 
 holaMundo()
 pageLoader()
+
+const navMenu = document.getElementById('Menu');
+
+navMenu.addEventListener('click', menuLoader)
