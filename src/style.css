@@ -90,7 +90,7 @@ html, body {
 .container-background{
     flex-grow: 1;
     display: flex;
-    background-color: red;
+    background-color: #e5e5e5;
 }
 .background-main{
     position:relative;
@@ -145,11 +145,22 @@ html, body {
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s ease 0s;
+    color: white;
 }
 .reserve-button:hover {
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
-    color: #fff;
+    color: black;
     transform: translateY(-7px);
+}
+.anim-move-right{
+    transform: translateX(750px);
+    opacity: 0;
+    transition: 1s;
+    pointer-events: none;
+}
+.anim-pic-move-right{
+    opacity: 0;
+    transition: 0.5s;
 }
 @media only screen and (max-width: 600px) {
     .background-text h1 {
