@@ -85,9 +85,6 @@ export default function pageLoader() {
     divBackgroundShadow.appendChild(buttonReserve);
     console.log(buttonReserve);
 
-    const checkPage = "Home";
-
-    console.log(checkPage);
 }
 
 /* <div id="social-network" class="social-network-bar"></div>

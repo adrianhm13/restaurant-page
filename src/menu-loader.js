@@ -2,29 +2,48 @@
 
 export default function menuLoader(){
 
+    const menuButton = document.getElementById('Menu');
+    const homeButton = document.getElementById('Home');
+    const contactButton = document.getElementById('Contact');
+
+    menuButton.classList.add('navbar-links-selected');
+    homeButton.classList.remove('navbar-links-selected')
+    contactButton.classList.remove('navbar-links-selected');
+
+    menuButton.style.pointerEvents = "none";
+    homeButton.style.pointerEvents = "auto";
+    contactButton.style.pointerEvents = "auto";
+    
+
+
+
     //Move to the right the divs from the previous page
 
-    //If divBackground (Home) it's not defined, then starts anim from contact page
+    //If divBackground (Home) it's defined, delete html of home
     const divBackground = document.getElementById('background-main');
+    if (divBackground != null){
+        closeHome(divBackground);
+    }else{
+        closeContact();
+    }
+    
+}
+
+
+
+function closeHome(divBackground) {
     const presentationText = document.getElementById('presentation-text');
     const reserveButton = document.getElementById('button-reserve');
     const backgroundHome = document.getElementById('background-home')
 
-    backgroundHome.classList.add('anim-pic-move-right');
-    presentationText.classList.add('anim-move-right');
-    reserveButton.classList.add('anim-move-right');
-
-    setTimeout(changeToMenu, 500, divBackground);
-
-    const varulla = document.getElementById('lalal');
-
-    if(varulla == null){
-        console.log("We couldnt find anything")
-    }
-    //Set anim to come from the left  the new divs
+    backgroundHome.classList.add('anim-pic-fade-out');
+    presentationText.classList.add('anim-move-left');
+    reserveButton.classList.add('anim-move-left');
+    
+    setTimeout(changeToMenu, 750, divBackground);
 }
 
 function changeToMenu(divBackground){
     console.log('Menu changed')
-    divBackground.innerHTML = ""
+    divBackground.remove();
 }
