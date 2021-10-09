@@ -87,6 +87,10 @@ html, body {
     color: #ee6c4d;
     transform: translateY(-5px);
 }
+.navbar-links-selected{
+    transform: translateY(-5px);
+    text-decoration: underline;
+}
 .container-background{
     flex-grow: 1;
     display: flex;
@@ -158,9 +162,37 @@ html, body {
     transition: 1s;
     pointer-events: none;
 }
-.anim-pic-move-right{
+.anim-move-left{
+    transform: translateX(-750px);
+    opacity: 0;
+    transition: 1s;
+    pointer-events: none;
+}
+.pic-hidden{
+    opacity: 0;
+}
+.anim-pic-fade-out{
     opacity: 0;
     transition: 0.5s;
+}
+.anim-pic-fade-in{
+    opacity: 1;
+    transition: 5s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes movefromright {
+    from { transform: translateX(-750px); }
+    to { transform: translateX(0px); }
+}
+.anim{
+    animation: fadein 0.5s ease-in;
+}
+.anim-from-right{
+    animation: movefromright 0.7s;
 }
 @media only screen and (max-width: 600px) {
     .background-text h1 {
