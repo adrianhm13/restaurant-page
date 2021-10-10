@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100&display=swap');
 
 html, body {
     width: 100vw;
@@ -156,43 +156,73 @@ html, body {
     color: black;
     transform: translateY(-7px);
 }
-.anim-move-right{
-    transform: translateX(750px);
-    opacity: 0;
-    transition: 1s;
-    pointer-events: none;
+.content-menu{
+    background-color: #e5e5e5;
+    flex-grow: 1;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
-.anim-move-left{
-    transform: translateX(-750px);
-    opacity: 0;
-    transition: 1s;
-    pointer-events: none;
+.menu-grid{
+    display: grid;
+    width: 700px;
+    height: 800px;
+    grid-template-columns: [dish] 30% [desc] 70%;
+    grid-template-rows: repeat(5, auto);
+    column-gap: 5px;
+    row-gap: 10px;
 }
-.pic-hidden{
-    opacity: 0;
+.menu-grid-cells{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    margin: 0;
+    padding: 0;
+    background-color: #003049;
+    box-shadow: 0 2px 15px 0 rgba(170, 170, 170, 0.2), 0 2px 5px 0 rgba(128, 128, 128, 0.19);
 }
-.anim-pic-fade-out{
-    opacity: 0;
-    transition: 0.5s;
+.menu-grid-cells h1{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color:#ee6c4d;
 }
-.anim-pic-fade-in{
-    opacity: 1;
-    transition: 5s;
+.menu-grid-cells h3{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 200;
+    color:white;
 }
-
 @keyframes fadein {
     from { opacity: 0; }
     to { opacity: 1; }
 }
-@keyframes movefromright {
+@keyframes fadeout {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+@keyframes movetoright {
     from { transform: translateX(-750px); }
     to { transform: translateX(0px); }
 }
-.anim{
-    animation: fadein 0.5s ease-in;
+@keyframes movetoleft {
+    from { transform: translateX(0px); }
+    to { transform: translateX(-750px); }
+}
+.anim-fadein{
+    animation: fadein 1s;
+}
+.anim-fadeout{
+    animation: fadeout 1s;
 }
 .anim-from-right{
-    animation: movefromright 0.7s;
+    animation: movetoright 0.7s;
+    animation-fill-mode: forwards;
+}
+.anim-from-left{
+    animation: movetoleft 0.7s;
+    animation-fill-mode: forwards;
 }
 @media only screen and (max-width: 600px) {
     .background-text h1 {
