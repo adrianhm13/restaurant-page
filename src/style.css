@@ -139,7 +139,7 @@ html, body {
     font-weight: 200;
     font-size: 27px;
 }
-.reserve-button{
+#button-reserve{
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     background-color: #ee6c4d;
@@ -149,9 +149,10 @@ html, body {
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s ease 0s;
+    animation-fill-mode: none;
     color: white;
 }
-.reserve-button:hover {
+#button-reserve:hover {
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
     color: black;
     transform: translateY(-7px);
@@ -182,6 +183,8 @@ html, body {
     padding: 0;
     background-color: #003049;
     box-shadow: 0 2px 15px 0 rgba(170, 170, 170, 0.2), 0 2px 5px 0 rgba(128, 128, 128, 0.19);
+    position: relative;
+    overflow: hidden;
 }
 .menu-grid-cells h1{
     font-family: 'Roboto', sans-serif;
@@ -194,6 +197,53 @@ html, body {
     font-weight: 200;
     color:white;
 }
+.menu-grid-cells img {
+    width: 250px;
+    height: 250px;
+}
+.content-contact{
+    display:flex;
+    position: relative;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    background-color: #e5e5e5;
+}
+.contact-form{
+    display: flex;
+    flex-direction: row;
+    width: 900px;
+    height: 600px;
+    background-color: #003049;
+    border-radius: 3px;
+    box-shadow: 0 2px 15px 0 rgba(170, 170, 170, 0.2), 0 2px 5px 0 rgba(128, 128, 128, 0.19);
+}
+
+.form-left{
+    position: relative;
+    overflow: hidden;
+    width: 50%;
+    height: 100%;
+}
+.form-left img{
+    left: -350px;
+    position: absolute;
+}
+.form-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+.form-right h1{
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    color:#ee6c4d;
+    margin: 0;
+    padding: 50px;
+}
 @keyframes fadein {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -202,26 +252,44 @@ html, body {
     from { opacity: 1; }
     to { opacity: 0; }
 }
-@keyframes movetoright {
+@keyframes movefromright {
     from { transform: translateX(-750px); }
     to { transform: translateX(0px); }
+}
+@keyframes movetoright {
+    from { transform: translateX(0px); }
+    to { transform: translateX(1500px); }
 }
 @keyframes movetoleft {
     from { transform: translateX(0px); }
     to { transform: translateX(-750px); }
 }
+@keyframes movefromleft {
+    from { transform: translateX(1300px); }
+    to { transform: translateX(0px); }
+}
 .anim-fadein{
-    animation: fadein 1s;
+    animation: fadein 0.5s;
+    animation-fill-mode: forwards;
 }
 .anim-fadeout{
-    animation: fadeout 1s;
+    animation: fadeout 0.5s;
+    animation-fill-mode: forwards;
 }
 .anim-from-right{
-    animation: movetoright 0.7s;
+    animation: movefromright 0.7s;
+    animation-fill-mode: forwards;
+}
+.anim-to-right{
+    animation: movetoright 0.5s;
     animation-fill-mode: forwards;
 }
 .anim-from-left{
     animation: movetoleft 0.7s;
+    animation-fill-mode: forwards;
+}
+.anim-to-center-from-left{
+    animation: movefromleft 0.5s;
     animation-fill-mode: forwards;
 }
 @media only screen and (max-width: 600px) {

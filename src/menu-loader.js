@@ -1,4 +1,5 @@
-
+//Import all the backgrounds and set it on the object
+import picTo from './background-main.jpg';
 
 export default function menuLoader(){
 
@@ -15,12 +16,14 @@ export default function menuLoader(){
     contactButton.style.pointerEvents = "auto";
     
 
-    //If divBackground (Home) it's defined, anim and delete html of home
+    //If divBackground (Home) it's defined, anim and delete html of home or contentContact
     const divBackground = document.getElementById('background-main');
+    const contentContact = document.getElementById('contentContact');
+    console.log(contentContact)
     if (divBackground != null){
         closeHome(divBackground);
-    }else{
-        closeContact();
+    }else if(contentContact != null){
+        closeContact(contentContact);
     }
     setTimeout(createMenu, 750)
 }
@@ -34,8 +37,10 @@ function createMenu(){
     
     
     divContentMenu.id = "contentMenu";
+    gridMenu.id = "grid";
     divContentMenu.classList.add('content-menu');
     gridMenu.classList.add('menu-grid');
+    gridMenu.classList.add('anim-to-center-from-left')
 
     generalContent.appendChild(divContentMenu);
     divContentMenu.appendChild(gridMenu);
@@ -53,6 +58,10 @@ function generateGrid(gridMenu){
 
         const cellGridDish = document.createElement('div');
         const cellGridDesc = document.createElement('div');
+        const cellGridPic = document.createElement('img');
+        cellGridPic.src = menu[i].pic;
+        cellGridPic.classList.add('menu-grid-pic');
+       
 
         const cellTextDish = document.createElement('h1');
         const cellTextDesc = document.createElement('h3');
@@ -69,6 +78,7 @@ function generateGrid(gridMenu){
         grid.appendChild(cellGridDish);
         grid.appendChild(cellGridDesc);
 
+        cellGridDish.appendChild(cellGridPic);
         cellGridDesc.appendChild(cellTextDish);
         cellGridDesc.appendChild(cellTextDesc);
     }
@@ -84,31 +94,48 @@ function closeHome(divBackground) {
     
     setTimeout(deleteHome, 750, divBackground);
 }
+function closeContact(contactContent){
+    const contactForm = document.getElementById('contact-form')
+    contactForm.classList.toggle('anim-to-center-from-left');
+    contactForm.classList.toggle('anim-to-right');
+
+    setTimeout(deleteContact, 750, contactContent);
+}
+
 
 function deleteHome(divBackground){
     console.log('Menu changed')
     divBackground.remove();
 }
 
+function deleteContact(contentContact){
+    console.log('dele')
+    contentContact.remove();
+}
 function fillMenu(){
     const menu = [{
-        dish: "hola",
+        pic: new URL('https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/159276.jpg?resize=600:*&output-format=auto&output-quality=auto'),
+        dish: "Blossoming Onion Lotus",
         description: "Adios"
     },
     {
-        dish: "hola2",
+        pic: new URL('https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/164176.jpg?resize=600:*&output-format=auto&output-quality=auto'),
+        dish: "Molten Churro Bombs",
         description: "Adios2"
     },
     {
-        dish: "hola3",
+        pic: new URL('https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/150087.jpg?resize=600:*&output-format=auto&output-quality=auto'),
+        dish: "100-Layer Lasagna",
         description: "Adios3"
     },
     {
-        dish: "hola4",
+        pic: new URL('https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/180907.jpg?resize=600:*&output-format=auto&output-quality=auto'),
+        dish: "Halloween Party Punch",
         description: "Adios4"
     },
     {
-        dish: "hola5",
+        pic: new URL('https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/124151.jpg?resize=600:*&output-format=auto&output-quality=auto'),
+        dish: "8 Desserts in 1 Pan",
         description: "Adios5"
     }]
     return menu;
