@@ -38,7 +38,26 @@ function createContact(){
     const titleText = document.createElement('h1');
     titleText.innerHTML = 'Reserve in Selanne'
     const formDiv = document.createElement('div');
+
+    //Form
+
+    const form = document.createElement('form');
+    form.classList.add('form-div');
+    const nameForm = document.createElement('input');
+    nameForm.type = "text";
+    nameForm.placeholder = "Your name";
+    const emailForm = document.createElement('input');
+    emailForm.type = "text";
+    emailForm.placeholder = "Your email address";
+    const dateForm = document.createElement('input');
+    dateForm.type = "datetime-local";
+    dateForm.value = "2021-10-11T19:30"
+
     
+
+
+    //Classes CSS
+
     contentContact.id = "contentContact";
     contentForm.id = "contact-form";
     contentContact.classList.add('content-contact');
@@ -59,6 +78,13 @@ function createContact(){
     formRight.appendChild(formDiv);
 
     titleDiv.appendChild(titleText);
+
+    //Form appendChild
+
+    formDiv.appendChild(form);
+    form.appendChild(nameForm);
+    form.appendChild(emailForm);
+    form.appendChild(dateForm);
 }
 
 function closeHome(divBackground){

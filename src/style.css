@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100&display=swap');
-
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
 html, body {
     width: 100vw;
     min-height: 100vh;
@@ -224,6 +228,7 @@ html, body {
     overflow: hidden;
     width: 50%;
     height: 100%;
+    border-radius: 3px 0 0 3px;
 }
 .form-left img{
     left: -350px;
@@ -243,6 +248,30 @@ html, body {
     color:#ee6c4d;
     margin: 0;
     padding: 50px;
+}
+.form-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+.form-div input{
+    margin: 17px;
+    padding: 10px;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    resize: none;
+    border: 1px solid rgb(209, 209, 209)
+}
+.form-div input:hover{
+    transition: border-color 0.3s ease-in-out;
+    border: 1px solid rgb(136, 136, 136);
+}
+.form-div input:focus{
+    outline: none;
+    border: 1px solid #aaa;
 }
 @keyframes fadein {
     from { opacity: 0; }
